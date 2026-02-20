@@ -1,8 +1,17 @@
 using UnityEngine;
 
-public class poseManager : MonoBehaviour
+public class pauseManager : MonoBehaviour
 {
     private bool isGamePaused = false;
+      [SerializeField]
+    private GameObject pauseMenuUI;
+ 
+ 
+    private void Awake()
+    {
+        pauseMenuUI.SetActive(false);
+    }
+    
     // Update is called once per frame
 void Update()
     {
@@ -23,10 +32,12 @@ void Update()
 
     private void Pause()
     {
+        pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
-    private void Resume()
+    public void Resume()
     {
+        pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
     }
 }
