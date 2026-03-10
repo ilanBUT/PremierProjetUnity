@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour // Correction de l'orthographe (Mouv
     private bool jumpReleased = false;
  
     private bool isFacingRight = true;
+
+    [SerializeField]
+    private Animator animator;
  
     private bool wasGrounded = false;
  
@@ -74,10 +77,15 @@ public class PlayerMovement : MonoBehaviour // Correction de l'orthographe (Mouv
         {
             nbJumps = 0;
         }
- 
+        Animations();
+        
         wasGrounded = isGrounded;
     }
  
+ void Animations()
+    {
+        animator.SetFloat("VelocityX", Mathf.Abs(rb.linearVelocityX));
+    }
     private void FixedUpdate()
  
     {
@@ -133,6 +141,8 @@ public class PlayerMovement : MonoBehaviour // Correction de l'orthographe (Mouv
         // Correction de la faute de frappe "lenearVelocity" -> "linearVelocity"
         rb.linearVelocity = new Vector2(moveDirectionX * moveSpeed, rb.linearVelocity.y);
     }
+
+    
  
     private void OnDrawGizmos()
     {
