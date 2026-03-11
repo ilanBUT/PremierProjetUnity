@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
         }
         currentLifePoints = Mathf.Clamp(currentLifePoints - 1, 0, maxLifePoints);
         currentLifePointsText.SetText(currentLifePoints.ToString());
+        StartCoroutine(InvulnerableFlash());
     }
  
 IEnumerator InvulnerableFlash()
