@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+ 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
@@ -7,22 +8,20 @@ public class PlayerHealth : MonoBehaviour
  
     [SerializeField]
     private int maxLifePoints;
- 
+   
     [SerializeField]
     private TextMeshProUGUI currentLifePointsText;
-
-    void Amake()
+ 
+    void Awake()
     {
         currentLifePoints = maxLifePoints;
-    }
-
-    publicvoid TakeDamage()
-    {
-        currentLifePoints = Mathf.Clamp(
-            currentLifePoints - 1, 0, maxLifePoints);
         currentLifePointsText.SetText(currentLifePoints.ToString());
-        
     }
+ 
+    void TakeDamage()
+    {
+        currentLifePoints = Mathf.Clamp(currentLifePoints - 1, 0, maxLifePoints);
+        currentLifePointsText.SetText(currentLifePoints.ToString());
+    }
+ 
 }
-
-    

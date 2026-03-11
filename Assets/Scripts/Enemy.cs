@@ -25,17 +25,14 @@ public class Enemy : MonoBehaviour
 
         if (contact.normal.y < -0.5f)
         {
-            Vector2 bounce = Vector2.up * 10;
-            collision.rigidbody.linearVelocityY = 0;
-            collision.rigidbody.AddForce(
-                bounce,
-                ForceMode2D.Impulse);
-            Die();
+            Destroy(gameObject);
         }
-    }
+        else
+        {
 
-    void Die()
-    {
-        Destroy(gameObject);
+        PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+                playerHealth.TakeDamage();
+        
     }
+}
 }
