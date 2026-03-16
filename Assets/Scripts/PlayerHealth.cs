@@ -1,42 +1,49 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
- 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
     private IntVariable currentLifePoints;
+
     [SerializeField]
     private IntVariable maxLifePoints;
+
+    [SerializeField]
+    private VoidEventChannel onTakeDamage;
+
     [SerializeField]
     private TextMeshProUGUI currentLifePointsText;
- 
+
+
+
     [SerializeField]
     private SpriteRenderer sr;
- 
- 
+
     private bool isInvulnerable = false;
- 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         currentLifePoints.CurrentValue = maxLifePoints.CurrentValue;
     }
- 
-   
+
     public void TakeDamage()
     {
         if (isInvulnerable)
         {
             return;
         }
+
         currentLifePoints.CurrentValue = Mathf.Clamp(
-        currentLifePoints.CurrentValue - 1,
-        0,
-        maxLifePoints.CurrentValue);
+            currentLifePoints.CurrentValue - 1,
+            0,
+            maxLifePoints.CurrentValue
+        );
+        onTakeDamage.Raise();
         StartCoroutine(InvulnerableFlash());
     }
- 
+
     IEnumerator InvulnerableFlash()
     {
         isInvulnerable = true;
@@ -78,5 +85,5 @@ public class PlayerHealth : MonoBehaviour
         sr.color = Color.white;
         isInvulnerable = false;
     }
- 
 }
+ 
