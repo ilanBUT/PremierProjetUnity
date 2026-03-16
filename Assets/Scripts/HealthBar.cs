@@ -13,6 +13,7 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(float healthNormalized)
     {
         fillImage.fillAmount = healthNormalized;
+        fillImage.color = gradient.Evaluate(healthNormalized);
     }
  
 }
