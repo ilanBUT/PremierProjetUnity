@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -237, y: 144}
+  m_AnchoredPosition: {x: -196, y: 149}
   m_SizeDelta: {x: 47.7907, y: 7.8652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200442123
@@ -238,6 +238,8 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  playerCurrentLifePoints: {fileID: 11400000, guid: 1f1197bba53bd7542806aa7f75f4fa9c, type: 2}
+  playerMaxLifePoints: {fileID: 11400000, guid: 92197393a6cc282478ab06026e0d88d8, type: 2}
 --- !u!1 &432253599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,7 +1591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1056820028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4178,7 +4180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5059,6 +5061,18 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 200442125}
+    - target: {fileID: 216611784810715294, guid: 261eff2593e30fb4c93069a778cb33b6, type: 3}
+      propertyPath: onTakeDamage
+      value: 
+      objectReference: {fileID: 11400000, guid: ed3a4e649d11f7e42b487a6cdf709c8c, type: 2}
+    - target: {fileID: 216611784810715294, guid: 261eff2593e30fb4c93069a778cb33b6, type: 3}
+      propertyPath: maxLifePoints
+      value: 
+      objectReference: {fileID: 11400000, guid: 92197393a6cc282478ab06026e0d88d8, type: 2}
+    - target: {fileID: 216611784810715294, guid: 261eff2593e30fb4c93069a778cb33b6, type: 3}
+      propertyPath: currentLifePoints
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f1197bba53bd7542806aa7f75f4fa9c, type: 2}
     - target: {fileID: 216611784810715294, guid: 261eff2593e30fb4c93069a778cb33b6, type: 3}
       propertyPath: currentLifePointsText
       value: 
